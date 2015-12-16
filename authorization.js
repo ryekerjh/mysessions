@@ -1,4 +1,6 @@
 var jwt = require('json-web-token');
+var users = require('./users.js');
+var User = users.Model;
 
 exports.tokenRequired = function tokenRequired(req, res, next) {
   var split;
