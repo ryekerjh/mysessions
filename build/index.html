@@ -5,9 +5,12 @@
   </head>
   <body>
     <div data-ng-controller="SessionsCtrl">
-      <h1>Sessions</h1>
-      <button type="button" 
-              data-ng-click="createSessionLink()"
+      <h1>{{ session.name }}</h1>
+      <button type="button"
+              data-ng-click="createSession()"
+              class="btn btn-primary btn-lg">Create Session</button>
+      <button type="button"
+              data-ng-click="shareSessionLink()"
               class="btn btn-primary btn-lg">Share Link</button>
       <p>{{ link }}</p>
     </div>
