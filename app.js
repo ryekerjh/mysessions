@@ -12,6 +12,7 @@ var app = express();
 
 mongoose.connect(process.env.MONGO_URI);
 
+app.use(express.static(__dirname + '/build'));
 app.use(bodyParser.json()); // for parsing application/json
 
 app.get('/', function(req, res) {
