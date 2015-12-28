@@ -25,7 +25,7 @@ exports.all = function all(req, res) {
     }, function(err) {
       res.status(500).json({ 'message': err });
     });
-}
+};
 
 exports.read = function read(req, res) {
   User
@@ -35,7 +35,7 @@ exports.read = function read(req, res) {
     }, function(err) {
       res.status(500).json({ 'message': err });
     });
-}
+};
 
 exports.create = function create(req, res) {
   req.body.password = passwordHash.generate(req.body.password);
@@ -46,7 +46,7 @@ exports.create = function create(req, res) {
     }, function(err) {
       res.status(400).json(err);
     });
-}
+};
 
 exports.update = function update(req, res) {
   User
@@ -62,7 +62,7 @@ exports.update = function update(req, res) {
     }, function(err) {
       res.status(500).json({ message: err });
     });
-}
+};
 
 exports.destroy = function destroy(req, res) {
   User
@@ -72,7 +72,7 @@ exports.destroy = function destroy(req, res) {
     }, function(err) {
       res.status(500).json({ message: err });
     });
-}
+};
 
 exports.authenticate = function authenticate(req, res) {
   User
@@ -96,4 +96,4 @@ exports.authenticate = function authenticate(req, res) {
     }, function(err) {
       res.status(400).json(err);
     });
-}
+};
