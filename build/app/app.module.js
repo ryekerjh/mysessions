@@ -1,6 +1,7 @@
 angular
   .module('app', [])
   .controller('SessionsCtrl', function($scope) {
+    $scope.sessions = [];
     $scope.session = {
       _id: '1234',
       name: 'Session',
@@ -8,7 +9,7 @@ angular
     };
 
     $scope.createSession = function() {
-      $scope.session = $scope.session;
+      $scope.sessions.push($scope.session);
     };
 
     $scope.shareSessionLink = function() {
