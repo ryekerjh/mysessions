@@ -23,7 +23,13 @@ exports.create = function(req, res) {
 };
 
 exports.all = function(req, res) {
-
+  Session
+    .find()
+    .then(function(result) {
+      res.json(result);
+    }, function(err) {
+      res.status(400).json(err);
+    });
 };
 
 exports.read = function(req, res) {
