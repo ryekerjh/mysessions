@@ -1,15 +1,23 @@
 angular
   .module('app', [])
-  .controller('SessionsCtrl', function($scope) {
-    $scope.sessions = [];
-    $scope.session = {
-      _id: '1234',
-      name: 'Session',
-      link: 'http://session.ly/1234'
-    };
+  .controller('SessionsCtrl', function($scope, $http) {
+    $http({
+      method: 'get',
+      url: '/sessions'
+    })
+      .then(function(res) {
+        $scope.sessions = res.data;
+        $scope.session = $scope.sessions[0];
+      });
 
     $scope.createSession = function() {
-      $scope.sessions.push($scope.session);
+      $http({
+        method: 'post',
+        url: '/sessions'
+      })
+        .then(function(res) {
+          $scope.sessions.push(res.data);
+        });
     };
 
     $scope.shareSessionLink = function() {

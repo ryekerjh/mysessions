@@ -20,8 +20,8 @@ app.patch('/users/:id', tokenRequired, users.update);
 app.delete('/users/:id', tokenRequired, users.destroy);
 app.post('/authenticate', users.authenticate);
 
-app.get('/sessions', tokenRequired, sessions.all);
-app.post('/sessions', tokenRequired, sessions.create);
-app.get('/sessions/:id', tokenRequired, sessions.read);
+app.get('/sessions', sessions.all);
+app.post('/sessions', sessions.create);
+app.get('/sessions/:id', sessions.read);
 
 app.listen(8080);
