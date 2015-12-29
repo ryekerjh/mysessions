@@ -29,7 +29,7 @@ angular
       });
     $urlRouterProvider.otherwise('/session');
   })
-  .controller('SessionCtrl', function($scope, sessions, session) {
+  .controller('SessionCtrl', function($scope, $http, sessions, session) {
     $scope.newSession = {};
     $scope.sessions = sessions;
     $scope.session = session;
