@@ -24,4 +24,4 @@ app.get('/sessions', sessions.all);
 app.post('/sessions', sessions.create);
 app.get('/sessions/:id', sessions.read);
 
-app.listen(8080);
+app.listen(process.env.PORT || 8080);
