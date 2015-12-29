@@ -8,7 +8,10 @@ var sessions = require('./sessions.js');
 
 var app = express();
 
-mongoose.connect(process.env.MONGO_URI);
+mongoose.connect(process.env.MONGO_URI, function(err) {
+  if (err)
+    throw err;
+});
 
 app.use(express.static(__dirname + '/build'));
 app.use(bodyParser.json()); // for parsing application/json
