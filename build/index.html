@@ -7,29 +7,10 @@
 </head>
 <body>
 <div class="container-fluid"
-     data-ng-controller="SessionsCtrl">
-  <div class="row">
-
-    <div class="col-md-2">
-      <a data-ng-show="!newSession.active" data-ng-click="activateNewSession()">+ Create Session</a>
-      <input type="text" data-ng-model="newSession.name" data-ng-keypress="createSession($event)" data-ng-show="newSession.active"/>
-      <ul>
-        <li data-ng-repeat="session in sessions">{{ session.name }}</li>
-      </ul>
-    </div>
-
-    <div class="col-md-10">
-      <h1>{{ session.name }}</h1>
-      <button type="button"
-              data-ng-click="shareSessionLink()"
-              class="btn btn-primary btn-lg">Share Link
-      </button>
-      <p>{{ link }}</p>
-    </div>
-
-  </div>
+     data-ui-view>
 </div>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
 <script src="/app/app.module.js"></script>
 </body>
 </html>

@@ -33,5 +33,12 @@ exports.all = function(req, res) {
 };
 
 exports.read = function(req, res) {
+  Session
+    .findById(req.params.id)
+    .then(function(result) {
+      res.json(result);
+    }, function(err) {
+      res.status(400).json(err);
+    });
 
 };
