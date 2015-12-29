@@ -27,7 +27,7 @@ angular
           }
         }
       });
-    $urlRouterProvider.otherwise('/session');
+    $urlRouterProvider.otherwise('/session/');
   })
   .controller('SessionCtrl', function($scope, $http, sessions, session) {
     $scope.newSession = {};
