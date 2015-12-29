@@ -11,13 +11,11 @@
   <div class="row">
 
     <div class="col-md-2">
+      <a data-ng-show="!newSession.active" data-ng-click="activateNewSession()">+ Create Session</a>
+      <input type="text" data-ng-model="newSession.name" data-ng-keypress="createSession($event)" data-ng-show="newSession.active"/>
       <ul>
         <li data-ng-repeat="session in sessions">{{ session.name }}</li>
       </ul>
-      <button type="button"
-              data-ng-click="createSession()"
-              class="btn btn-primary btn-lg">Create Session
-      </button>
     </div>
 
     <div class="col-md-10">

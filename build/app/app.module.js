@@ -1,6 +1,8 @@
 angular
   .module('app', [])
   .controller('SessionsCtrl', function($scope, $http) {
+    $scope.newSession = {};
+
     $http({
       method: 'get',
       url: '/sessions'
@@ -10,14 +12,22 @@ angular
         $scope.session = $scope.sessions[0];
       });
 
-    $scope.createSession = function() {
-      $http({
-        method: 'post',
-        url: '/sessions'
-      })
-        .then(function(res) {
-          $scope.sessions.push(res.data);
-        });
+    $scope.activateNewSession = function() {
+      $scope.newSession.active = true;
+    };
+
+    $scope.createSession = function(e) {
+      if (e.keyCode === 13) {
+        $http({
+          method: 'post',
+          url: '/sessions',
+          data: $scope.newSession
+        })
+          .then(function(res) {
+            $scope.sessions.push(res.data);
+            $scope.newSession = {};
+          });
+      }
     };
 
     $scope.shareSessionLink = function() {
