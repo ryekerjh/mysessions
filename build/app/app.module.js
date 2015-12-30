@@ -29,7 +29,8 @@ angular
       });
     $urlRouterProvider.otherwise('/session/');
   })
-  .controller('SessionCtrl', function($scope, $http, sessions, session) {
+  .controller('SessionCtrl', function($scope, $http, $stateParams, sessions, session) {
+    socket.emit('enter-room', { session_id: $stateParams.id, user_id: '566f54028750c50d3fb227f1' });
     $scope.newSession = {};
     $scope.sessions = sessions;
     $scope.session = session;

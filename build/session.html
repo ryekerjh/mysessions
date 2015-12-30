@@ -10,13 +10,21 @@
     </ul>
   </div>
 
-  <div class="col-md-10">
+  <div class="col-md-8">
     <h1>{{ session.name }}</h1>
     <button type="button"
             data-ng-click="shareSessionLink()"
             class="btn btn-primary btn-lg">Share Link
     </button>
     <p>{{ link }}</p>
+  </div>
+  <div class="col-md-2">
+    <h6>Members</h6>
+    <ul>
+      <li data-ng-repeat="member in session.members">
+        {{ member.user.first_name }} {{ member.user.last_name }}
+      </li>
+    </ul>
   </div>
 
 </div>

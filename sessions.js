@@ -1,7 +1,12 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var memberSchema = new Schema({
+  user: { type : Schema.ObjectId, ref: 'User' },
+  connected: Boolean
+});
 var sessionSchema = new Schema({
-  name: String
+  name: String,
+  members: [memberSchema]
 }, {
   timestamps: {
     createdAt: 'created_on',
@@ -35,10 +40,10 @@ exports.all = function(req, res) {
 exports.read = function(req, res) {
   Session
     .findById(req.params.id)
+    .populate('members.user')
     .then(function(result) {
       res.json(result);
     }, function(err) {
       res.status(400).json(err);
     });
-
 };
