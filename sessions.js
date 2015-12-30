@@ -3,6 +3,8 @@ var Schema = mongoose.Schema;
 var memberSchema = new Schema({
   user: { type : Schema.ObjectId, ref: 'User' },
   connected: Boolean
+}, {
+  _id: false
 });
 var sessionSchema = new Schema({
   name: String,
