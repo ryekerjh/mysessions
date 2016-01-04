@@ -56,4 +56,8 @@ angular
     $scope.shareSessionLink = function() {
       $scope.link = $scope.session.link;
     };
+
+    $scope.createBlock = function() {
+      console.log('creating block');
+    };
   });

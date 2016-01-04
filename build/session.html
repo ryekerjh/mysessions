@@ -6,16 +6,18 @@
     <ul>
       <li data-ng-repeat="session in sessions">
         <a data-ui-sref="session({id: session._id})">{{ session.name }}</a>
+        <span class="glyphicon glyphicon-share"
+              aria-hidden="true"
+              data-ng-click="shareSessionLink()">
+        </span>
       </li>
     </ul>
   </div>
 
   <div class="col-md-8">
     <h1>{{ session.name }}</h1>
-    <button type="button"
-            data-ng-click="shareSessionLink()"
-            class="btn btn-primary btn-lg">Share Link
-    </button>
+    <a data-ng-click="createBlock()">+ Create Block
+    </a>
     <p>{{ link }}</p>
   </div>
   <div class="col-md-2">
