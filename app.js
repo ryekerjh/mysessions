@@ -8,6 +8,7 @@ var tokenRequired = authorization.tokenRequired;
 var mongoose = require('mongoose');
 var users = require('./users.js');
 var sessions = require('./sessions.js');
+var blocks = require('./blocks.js');
 
 mongoose.connect(process.env.MONGO_URI, function(err) {
   if (err)
@@ -30,6 +31,9 @@ app.get('/sessions', sessions.all);
 app.post('/sessions', sessions.create);
 app.get('/sessions/:id', sessions.read);
 
+app.get('/blocks', blocks.all);
+app.post('/blocks', blocks.create);
+app.get('/blocks/:id', blocks.read);
 
 io.on('connection', function (socket) {
   socket.on('enter-room', function(data) {

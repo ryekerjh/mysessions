@@ -25,6 +25,14 @@ angular
               return res.data;
             });
           }
+          // blocks: function ($http) {
+          //   return $http({
+          //     method: 'get',
+          //     url: '/blocks/' + blocks.id
+          //   }).then(function (res) {
+          //     return res.data;
+          //   });
+          // }
         }
       });
     $urlRouterProvider.otherwise('/session/');
@@ -58,6 +66,31 @@ angular
     };
 
     $scope.createBlock = function() {
-      console.log('creating block');
+
+
+        $http({
+          url: '/blocks',
+          method: 'post',
+          data: {
+            session: $scope.session._id
+          }
+        })
+
+        $http({
+          method: 'get',
+          url: '/blocks',
+          data: {
+            session: $scope.session._id
+          }
+        })
+          .then(function(res) {
+            $scope.newBlock = {},
+              $scope.blocks = res.data
+          });
     };
   });
+
+
+
+
+

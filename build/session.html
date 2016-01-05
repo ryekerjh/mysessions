@@ -16,9 +16,15 @@
 
   <div class="col-md-8">
     <h1>{{ session.name }}</h1>
-    <a data-ng-click="createBlock()">+ Create Block
+    <a href="javascript:void(0)" data-ng-click="createBlock()">+ Create Block
     </a>
     <p>{{ link }}</p>
+    <input data-ng-show="block.active" />
+    <ul>
+      <li data-ng-repeat="block in blocks | orderBy: '-created_on'">
+        {{ block._id }}
+      </li>
+    </ul>
   </div>
   <div class="col-md-2">
     <h6>Members</h6>
